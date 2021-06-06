@@ -1,13 +1,12 @@
-from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier
+import Veri.veri_isleme
 
-from Veri.veri_isleme import OnIsleme
 
-
-class NaiveBayes():
-    kararAlgoritmasi = GaussianNB()
+class YsaAlg():
+    kararAlgoritmasi = MLPClassifier(activation='relu')
 
     def __init__(self):
-        isleme = OnIsleme()
+        isleme = Veri.veri_isleme.OnIsleme()
         x_train, x_test, y_train, y_test = isleme.seti_bol()
         self.kararAlgoritmasi.fit(x_train, y_train)
 
